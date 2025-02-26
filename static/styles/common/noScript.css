@@ -1,0 +1,49 @@
+body > header > details > summary > div > svg {
+	display: none;
+}
+
+body:not(.home) {
+	--header--width: 100vw;
+}
+
+@media (min-width: 48em) and (min-height: 30em),
+(min-width: 58.125em) {
+	body:not(.home) {
+		--header--width: 25.2rem;
+	}
+
+	body:not(.home) > header {
+		--logo--height: 3.8rem;
+		--client--columns: 1;
+	}
+}
+
+body:not(.home).nav--pre > header {
+	visibility: visible;
+}
+
+body:not(.home) > main {
+	min-width: calc(100vw - var(--header--width) - env(safe-area-inset-left, 0rem) - env(safe-area-inset-right, 0rem));
+}
+
+body:not(.home) > main > footer {
+	--link--columns: 1;
+}
+
+@media (min-width: 64em) {
+	body:not(.home).about > main {
+		--client--columns: 2;
+	}
+}
+
+@media (min-width: 78.75em) {
+	body:not(.home).about > main {
+		--client--columns: 3;
+	}
+}
+
+@media (min-width: 92.5em) {
+	body:not(.home).about > main {
+		--client--columns: 4;
+	}
+}
