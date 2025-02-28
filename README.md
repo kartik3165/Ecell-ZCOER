@@ -3,13 +3,13 @@
 ## 1. Public Pages
 
 ### 1.1 Home Page
-- [*] Hero section with E-Cell mission
+- [x] Hero section with E-Cell mission
 - [ ] Navigation menu
-- [ ] Featured upcoming events display
+- [x] Featured upcoming events display
 - [ ] Latest blog posts preview section
 - [ ] Quick links section
-- [ ] Social media integration
-- [ ] Mobile responsive layout
+- [x ] Social media integration
+- [ x] Mobile responsive layout
 
 ### 1.2 About Us Page
 - [ ] Mission and vision section
