@@ -3,7 +3,7 @@
 ## 1. Public Pages
 
 ### 1.1 Home Page
-- [ ] Hero section with E-Cell mission
+- [*] Hero section with E-Cell mission
 - [ ] Navigation menu
 - [ ] Featured upcoming events display
 - [ ] Latest blog posts preview section
