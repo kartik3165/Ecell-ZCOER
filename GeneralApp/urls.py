@@ -10,7 +10,7 @@ urlpatterns = [
     path('privacy/', views.privacy, name='privacy'),
     path('updates/', views.updates, name='updates'),
     path('work/', views.work, name='work'),
-    path('single-work/', views.single_work, name='single_work'),
+    path('single-work/<str:slug>', views.single_work, name='single_work'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

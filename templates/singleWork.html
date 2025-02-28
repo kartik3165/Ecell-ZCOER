@@ -11,158 +11,133 @@
 {% block content %}
 <header class="invert">
 	<section class="intro">
-		<header>
+		{% comment %} <header>
 			<a href="../index.html">
 				<p>Work</p>
 			</a>
 			<a href="index.html">
 				<h1>S﻿tackabl</h1>
 			</a>
-		</header>
+		</header> {% endcomment %}
 		<div>
 			<blockquote>
-				<p>Reimagining what’s possible with what’s already there</p>
+				<p>{{event.events.title}}</p>
 			</blockquote>
 			<div>
-				<p>Reimagining what’s possible with what’s already there, design studio, STACKLAB, partnered with 20th Century furniture aficionados, Maison Gerard, to develop an innovative system for creating furniture without waste. Their groundbreaking design tool allows customers to create their own beautiful, modular furniture from high quality recycled materials.<br>
-					<br>
-					Our challenge was to create a name and brand that is equally high-end and high-tech, capturing the full appeal of this future-facing design system and the storied companies behind it.<br>
-					<br>
-					Inspired by the customizable functions of the technology, we came up with the name Stackabl—a simple, yet clever remix of STACKLAB. The artful identity complements the name, incorporating modular elements that are grounded in the dynamic principles of experiential design.
-				</p>
+				<p>{{event.events.detail_description | safe}}</p>
 			</div>
 			<aside>
 				<ul>
+					{% for data in tag_list %}
 					<li>
-						<p>Digital Design</p>
+						<p>{{data}}</p>
 					</li>
-					<li>
-						<p>Launch Activation Concepting</p>
-					</li>
-					<li>
-						<p>Naming</p>
-					</li>
-					<li>
-						<p>Visual Identity</p>
-					</li>
+					{% endfor %}
 				</ul>
 			</aside>
 		</div>
 	</section>
 	<figure style="--aspect-ratio:16 / 9">
 		<picture>
-			<source media="(max-width: 767px)" sizes="90vw" srcset="/work/stackabl/230104_stkbl_casestudy_00_logo.gif">
-			<img src="230104_stkbl_casestudy_00_logo.gif">
+			<source media="(max-width: 767px)" sizes="90vw" srcset="{{event.hero_Image.url}}">
+			<img src="{{event.hero_Image.url}}">
 		</picture>
 	</figure>
 </header>
+
+
 <article>
-	<section class="single">
-		<figure style="--aspect-ratio:16 / 9;--aspect-ratio--small:8 / 9">
-			<video autoplay loop muted disablepictureinpicture playsinline preload="auto" poster="230104_stkbl_casestudy_01_logoicon_huebbfad1edfa8e198fe68a27ac6a615ca_150168_3200x0_resize_q90_linear.jpg">
-				<source src="230104_stkbl_casestudy_01_logoicon.mp4" type="video/mp4">
-				<p>S﻿tackabl logo and chair icon animation</p>
-			</video>
-		</figure>
-	</section>
-	<section class="double">
-		<figure style="--aspect-ratio:8 / 9">
-			<video autoplay loop muted disablepictureinpicture playsinline preload="auto" poster="230104_stkbl_casestudy_02_pixelpattern.jpg">
-				<source src="230104_stkbl_casestudy_02_pixelpattern.mp4" type="video/mp4">
-				<p>A﻿nimation of a pixel pattern forming chair icons</p>
-			</video>
-		</figure>
-		<figure style="--aspect-ratio:8 / 9">
-			<picture>
-				<source media="(max-width: 767px)" sizes="90vw" srcset="/work/stackabl/230104_stkbl_casestudy_03_screw.jpg">
-				<img src="230104_stkbl_casestudy_03_screw.jpg" alt="F﻿elt chair with Stackabl logo embedded on screw">
-			</picture>
-		</figure>
-	</section>
-	<section class="single">
-		<figure style="--aspect-ratio:16 / 9">
-			<video autoplay loop muted disablepictureinpicture playsinline preload="auto" poster="230104_stkbl_casestudy_04_iconchair_hu36dc30ec41362dee4f34ed0c627f514b_2249257_3200x0_resize_q90_linear.jpg">
-				<source src="230104_stkbl_casestudy_04_iconchair.mp4" type="video/mp4">
-				<p>Animation of chair photos paired with respective icons and names</p>
-			</video>
-		</figure>
-	</section>
-	<section class="single">
-		<figure style="--aspect-ratio:16 / 9">
-			<video autoplay loop muted disablepictureinpicture playsinline preload="auto" poster="230104_stkbl_casestudy_05_modular_hu85a2ebead47f7683dd1888d36f5597bd_1226313_3200x0_resize_q90_linear.jpg">
-				<source src="230104_stkbl_casestudy_05_modular.mp4" type="video/mp4">
-				<p>a﻿nimation of Stackabl modular layouts and design system</p>
-			</video>
-		</figure>
-	</section>
-	<section class="single">
-		<figure style="--aspect-ratio:16 / 9">
-			<video autoplay loop muted disablepictureinpicture playsinline preload="auto" poster="230104_stkbl_casestudy_06_website_huebbfad1edfa8e198fe68a27ac6a615ca_5916157_3200x0_resize_q90_linear.jpg">
-				<source src="230104_stkbl_casestudy_06_website.mp4" type="video/mp4">
-				<p>a﻿nimation of Stackabl website homepage cycling through chair images</p>
-			</video>
-		</figure>
-	</section>
-	<section class="single">
-		<figure style="--aspect-ratio:16 / 9">
-			<picture>
-				<source media="(max-width: 767px)" sizes="90vw" srcset="/work/stackabl/230104_stkbl_casestudy_09_posters_hub8f0d39c2b2cf297f8416b66fe41b822_1138312_1600x0_resize_q90_linear.jpg">
-				<img src="230104_stkbl_casestudy_09_posters_hub8f0d39c2b2cf297f8416b66fe41b822_1138312_3200x0_resize_q90_linear.jpg" alt="3﻿ stackabl poster designs">
-			</picture>
-		</figure>
-	</section>
-	<section class="single">
-		<figure style="--aspect-ratio:16 / 9">
-			<video autoplay loop muted disablepictureinpicture playsinline preload="auto" poster="230104_stkbl_casestudy_08_configurator_hua87cba8d994ee1fdcecf7fb8ff6af6ac_5753702_3200x0_resize_q90_linear.jpg">
-				<source src="230104_stkbl_casestudy_08_configurator.mp4" type="video/mp4">
-				<p>a﻿nimation of chair being customized on Stackabl&rsquo;s configurator</p>
-			</video>
-		</figure>
-	</section>
-	<section class="single">
-		<figure style="--aspect-ratio:16 / 9">
-			<picture>
-				<source media="(max-width: 767px)" sizes="90vw" srcset="/work/stackabl/230104_stkbl_casestudy_10_social.gif">
-				<img src="230104_stkbl_casestudy_10_social.gif" alt="3﻿ examples instagram posts for Stackabl' artist chair collaborations">
-			</picture>
-		</figure>
-	</section>
-	<section class="double">
-		<figure style="--aspect-ratio:8 / 9">
-			<picture>
-				<source media="(max-width: 767px)" sizes="90vw" srcset="/work/stackabl/230104_stkbl_casestudy_11_certificate-tape.gif">
-				<img src="230104_stkbl_casestudy_11_certificate-tape.gif" alt="g﻿if of branded tape and a certificate of authenticity">
-			</picture>
-		</figure>
-		<figure style="--aspect-ratio:8 / 9">
-			<video autoplay loop muted disablepictureinpicture playsinline preload="auto" poster="230104_stkbl_casestudy_13_socialstack.jpg">
-				<source src="230104_stkbl_casestudy_13_socialstack.mp4" type="video/mp4">
-				<p>s﻿tackabl instagram grid showcasing the logo letterforms</p>
-			</video>
-		</figure>
-	</section>
-	<section class="single">
-		<figure style="--aspect-ratio:16 / 9">
-			<picture>
-				<source media="(max-width: 767px)" sizes="90vw" srcset="/work/stackabl/230104_stkbl_casestudy_14_tote_hu4addf31107fb0574700894478a44dbe5_8252559_1600x0_resize_q90_linear.jpg">
-				<img src="230104_stkbl_casestudy_14_tote_hu4addf31107fb0574700894478a44dbe5_8252559_3200x0_resize_q90_linear.jpg" alt="woman with branded tote bag featuring stackabl logo">
-			</picture>
-		</figure>
-	</section>
-	<section class="sticky">
-		<aside class="single">
-			<p>Stackabl made its debut at the 2022 Salon Art + Design Fair. To turn heads, the clients signed on several well known artists to create one-of-a-kind pieces using the tool, helping showcase its endless design possibilities. Since then, Stackabl has been featured in many noteworthy publications and at design fairs around the world, generating a lot of recognition and winning highly sought after awards for its fresh take on sustainability.</p>
-		</aside>
-		<div>
-			<figure style="--aspect-ratio:16 / 9">
-				<picture>
-					<source media="(max-width: 767px)" sizes="90vw" srcset="/work/stackabl/230104_stkbl_casestudy_15_press.gif">
-					<img src="230104_stkbl_casestudy_15_press.gif" alt="Stackabl awards articles as displayed on iphone">
-				</picture>
-			</figure>
-		</div>
-	</section>
-</article>
+	{% for section in portfolio_content.sections.all %}
+		{% if section.section_type == 'single' %}
+			<section class="single">
+				{% for media in section.media_items.all %}
+					{% if media.media_type == 'image' %}
+						<figure style="--aspect-ratio: {{ media.aspect_width }} / {{ media.aspect_height }};">
+							<picture>
+								<source media="(max-width: 767px)" sizes="90vw" srcset="{{ media.image.url }}">
+								<img src="{{ media.image.url }}" alt="{{ media.image_alt }}">
+							</picture>
+						</figure>
+					{% elif media.media_type == 'video' %}
+						<figure style="--aspect-ratio: {{ media.aspect_width }} / {{ media.aspect_height }};">
+							<video disablepictureinpicture playsinline preload="auto" {% if media.video_poster %}poster="{{ media.video_poster.url }}"{% endif %}>
+								<source src="{{ media.video.url }}" type="video/mp4">
+							</video>
+						</figure>
+					{% endif %}
+				{% endfor %}
+			</section>
+
+		{% elif section.section_type == 'double' %}
+			<section class="double">
+				{% for media in section.media_items.all %}
+					{% if media.media_type == 'image' %}
+						<figure style="--aspect-ratio: {{ media.aspect_width }} / {{ media.aspect_height }};">
+							<picture>
+								<source media="(max-width: 767px)" sizes="90vw" srcset="{{ media.image.url }}">
+								<img src="{{ media.image.url }}" alt="{{ media.image_alt }}">
+							</picture>
+						</figure>
+					{% elif media.media_type == 'video' %}
+						<figure style="--aspect-ratio: {{ media.aspect_width }} / {{ media.aspect_height }};">
+							<video disablepictureinpicture playsinline preload="auto" {% if media.video_poster %}poster="{{ media.video_poster.url }}"{% endif %}>
+								<source src="{{ media.video.url }}" type="video/mp4">
+							</video>
+						</figure>
+					{% endif %}
+				{% endfor %}
+			</section>
+
+		{% elif section.section_type == 'sticky' %}
+			<section class="sticky">
+				<aside class="single">
+					{% for media in section.media_items.all %}
+						{% if media.media_type == 'text' %}
+							{{ media.info|safe }}
+						{% endif %}
+					{% endfor %}
+				</aside>
+				<div>
+					{% for media in section.media_items.all %}
+						{% if media.media_type == 'image' %}
+							<figure style="--aspect-ratio: {{ media.aspect_width }} / {{ media.aspect_height }};">
+								<picture>
+									<source media="(max-width: 767px)" sizes="90vw" srcset="{{ media.image.url }}">
+									<img src="{{ media.image.url }}" alt="{{ media.image_alt }}">
+								</picture>
+							</figure>
+						{% elif media.media_type == 'video' %}
+							<figure style="--aspect-ratio: {{ media.aspect_width }} / {{ media.aspect_height }};">
+								<video disablepictureinpicture playsinline preload="auto" {% if media.video_poster %}poster="{{ media.video_poster.url }}"{% endif %}>
+									<source src="{{ media.video.url }}" type="video/mp4">
+								</video>
+							</figure>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</section>
+		{% endif %}
+	{% endfor %}
+</article> 
+
+<style>
+	.video-container {
+		position: relative;
+		padding-bottom: calc(var(--aspect-ratio) * 100%);
+		height: 0;
+		overflow: hidden;
+		width: 100%;
+	}
+	
+	.video-container iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	</style>
+
 <section id="work">
 	<header>
 		<a href="../index.html">
