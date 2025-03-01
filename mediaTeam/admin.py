@@ -22,15 +22,11 @@ class MediaContentInline(admin.TabularInline):
         'video', 
         'video_poster', 
         'info',
-        'info_Image'
     ]
-
 class SectionContentInline(admin.TabularInline):
     model = SectionContent
     extra = 1
     fields = ['section_type', 'order']
-    # Note: Django admin does not support nested inlines by default.
-    # To include MediaContent inline inside SectionContent inline, consider using a third-party package like django-nested-admin.
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):

@@ -18,25 +18,6 @@
 		<span id="about-overview-content-wrapper" class="about-overview-content-wrapper">
 			<h1>We Make New.</h1>
 			{{info.general}}
-			{% comment %} <a href="index.html#" class="about-overview-link" id="overview-link-now">
-				<p class="link-text">Now,</p>
-				<span class="link-line"></span>
-				<span class="link-content" id="overview-link-now-content">
-					Solving for the most current and relevant cultural shifts</span>
-			</a>
-			<a href="index.html#" class="about-overview-link" id="overview-link-novel">
-				<p class="link-text">Novel,</p>
-				<span class="link-line"></span>
-				<span class="link-content" id="overview-link-novel-content">Divergent and differentiating, making work that feels ownable and
-					independent.</span>
-			</a>
-			and
-			<a href="index.html#" class="about-overview-link" id="overview-link-next">
-				<p class="link-text">Next.</p>
-				<span class="link-line"></span>
-				<span class="link-content" id="overview-link-next-content">Envisioning what&rsquo;s to come for businesses and brands moving
-					forward</span>
-			</a> {% endcomment %}
 		</span>
 	</section>
 </header>
@@ -103,7 +84,7 @@
 		<h2>Register StartUps</h2>
 	</header>
 	<ul style="--client--count:39">
-		{% for startup in startup  %}
+		{% for startup in startup  %} 
 			<li>
 				<p onclick="window.location.href='{{startup.website}}';" style="cursor: pointer;">
 					{{startup.startup_name}}

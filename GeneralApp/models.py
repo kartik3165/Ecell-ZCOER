@@ -12,7 +12,7 @@ class ClubInfo(models.Model):
     mission2 = models.TextField(help_text="The mission of the club.")
     goals1 = models.TextField(help_text="The goals of the club.")
     goals2 = models.TextField(help_text="The goals of the club.")
-
+    link = models.URLField( validators=[URLValidator()], null=True, blank=True, help_text="Team register link")
     updated_at = models.DateTimeField(auto_now=True, help_text="The date and time when the information was last updated.")
 
     def __str__(self):
@@ -39,40 +39,6 @@ class ContactInfo(models.Model):
         verbose_name = "Contact Information"
         verbose_name_plural = "Contact Information"
 
-class RegisterStartups(models.Model):
-    # Choices for college year
-    YEAR_CHOICES = [
-        ('FE', 'First Year (FE)'),
-        ('SE', 'Second Year (SE)'),
-        ('TE', 'Third Year (TE)'),
-        ('BE', 'Final Year (BE)'),
-    ]
-
-    # Basic Information
-    startup_name = models.CharField(max_length=255, verbose_name="Startup Name")
-    description = models.TextField(verbose_name="Description", help_text="Brief description of the startup")
-    website = models.URLField(validators=[URLValidator()], null=True, blank=True, verbose_name="Website")
-
-    # Founder Information
-    founder_name = models.CharField(max_length=255, verbose_name="Founder Name")
-    founder_email = models.EmailField(validators=[EmailValidator()], verbose_name="Founder Email")
-    founder_phone = models.CharField(max_length=15, verbose_name="Founder Phone", null=True, blank=True)
-
-    # College Information
-    college_department = models.CharField(max_length=255, verbose_name="Department", null=True, blank=True)
-    college_year = models.CharField(max_length=2, choices=YEAR_CHOICES, verbose_name="College Year", null=True, blank=True)
-
-    # Additional Information
-    registration_date = models.DateField(auto_now_add=True, verbose_name="Registration Date")
-    is_approved = models.BooleanField(default=False, verbose_name="Approved")
-
-    # Social Media Links (Optional)
-    linkedin_url = models.URLField(validators=[URLValidator()], null=True, blank=True, verbose_name="LinkedIn URL")
-    instagram_url = models.URLField(validators=[URLValidator()], null=True, blank=True, verbose_name="Instagram URL")
-    twitter_url = models.URLField(validators=[URLValidator()], null=True, blank=True, verbose_name="Twitter URL")
-
-    def __str__(self):
-        return self.startup_name
 
     class Meta:
         verbose_name = "Registered Startup"
@@ -82,4 +48,10 @@ class RegisterStartups(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class HyperLink(models.Model):
+    title = models.CharField(max_length=150)
+    info = models.CharField(max_length=150)
+    link = models.URLField( validators=[URLValidator()], null=True, blank=True)
 

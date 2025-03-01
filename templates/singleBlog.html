@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% block title %}Blog{{blog.title}}{% endblock %}
+
+{% block body_class %}work nav--pre single nav--invert{% endblock %}
+
+{% block extra_css %}
+	<link href="../static/styles/work.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+</style>
+<header class="invert">
+	<section class="intro">
+		<figure style="--aspect-ratio:16 / 9">
+			<picture>
+				<source media="(max-width: 767px)" sizes="90vw" srcset="{{blog.hero_Img.url}}">
+				<img src="{{blog.hero_Img.url}}">
+			</picture>
+		</figure>
+		<div>
+			<blockquote>.
+				<p>{{ blog.title }}</p>
+			</blockquote>
+			<div>
+				<p>{{blog.blog|safe}}</p>
+			</div>
+			<aside>
+				<ul>
+					{% for data in tag_list %}
+					<li>
+						<p>{{data}}</p>
+					</li>
+					{% endfor %}
+				</ul>
+			</aside>
+
+		</div>
+		
+	</section>
+	
+</header>
+
+
+<article>
+	{% for section in portfolio_content.sections.all %}
+		{% if section.section_type == 'single' %}
+			<section class="single">
+				{% for media in section.media_items.all %}
+					{% if media.media_type == 'image' %}
+						<figure style="--aspect-ratio: {{ media.aspect_width }} / {{ media.aspect_height }};">
+							<picture>
+								<source media="(max-width: 767px)" sizes="90vw" srcset="{{ media.image.url }}">
+								<img src="{{ media.image.url }}" alt="{{ media.image_alt }}">
+							</picture>
+						</figure>
+					{% elif media.media_type == 'video' %}
+						<figure style="--aspect-ratio: {{ media.aspect_width }} / {{ media.aspect_height }};">
+							<video disablepictureinpicture playsinline preload="auto" {% if media.video_poster %}poster="{{ media.video_poster.url }}"{% endif %}>
+								<source src="{{ media.video.url }}" type="video/mp4">
+							</video>
+						</figure>
+					{% endif %}
+				{% endfor %}
+			</section>
+
+		{% elif section.section_type == 'double' %}
+			<section class="double">
+				{% for media in section.media_items.all %}
+					{% if media.media_type == 'image' %}
+						<figure style="--aspect-ratio: {{ media.aspect_width }} / {{ media.aspect_height }};">
+							<picture>
+								<source media="(max-width: 767px)" sizes="90vw" srcset="{{ media.image.url }}">
+								<img src="{{ media.image.url }}" alt="{{ media.image_alt }}">
+							</picture>
+						</figure>
+					{% elif media.media_type == 'video' %}
+						<figure style="--aspect-ratio: {{ media.aspect_width }} / {{ media.aspect_height }};">
+							<video disablepictureinpicture playsinline preload="auto" {% if media.video_poster %}poster="{{ media.video_poster.url }}"{% endif %}>
+								<source src="{{ media.video.url }}" type="video/mp4">
+							</video>
+						</figure>
+					{% endif %}
+				{% endfor %}
+			</section>
+
+		{% elif section.section_type == 'sticky' %}
+			<section class="sticky">
+				<aside class="single">
+					{% for media in section.media_items.all %}
+						{% if media.media_type == 'text' %}
+							{{ media.info|safe }}
+						{% endif %}
+					{% endfor %}
+				</aside>
+				<div>
+					{% for media in section.media_items.all %}
+						{% if media.media_type == 'image' %}
+							<figure style="--aspect-ratio: {{ media.aspect_width }} / {{ media.aspect_height }};">
+								<picture>
+									<source media="(max-width: 767px)" sizes="90vw" srcset="{{ media.image.url }}">
+									<img src="{{ media.image.url }}" alt="{{ media.image_alt }}">
+								</picture>
+							</figure>
+						{% elif media.media_type == 'video' %}
+							<figure style="--aspect-ratio: {{ media.aspect_width }} / {{ media.aspect_height }};">
+								<video disablepictureinpicture playsinline preload="auto" {% if media.video_poster %}poster="{{ media.video_poster.url }}"{% endif %}>
+									<source src="{{ media.video.url }}" type="video/mp4">
+								</video>
+							</figure>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</section>
+		{% endif %}
+	{% endfor %}
+</article> 
+
+<style>
+	.video-container {
+		position: relative;
+		padding-bottom: calc(var(--aspect-ratio) * 100%);
+		height: 0;
+		overflow: hidden;
+		width: 100%;
+	}
+	
+	.video-container iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	</style>
+
+<section id="work">
+	<header>
+		<a href="{% url 'blogs' %}">
+			<h2>All Blogs</h2>
+		</a>
+	</header>
+	<menu>
+		{% for dat in post %}
+			{% if dat.slug != blog.slug %}
+				<li>
+					<a href="{% url 'single_blog' dat.slug %}">
+						<figure style="--aspect-ratio:16 / 9">
+							<picture>
+								<source media="(max-width: 767px)" sizes="90vw" srcset="{{dat.hero_Img.url}}">
+								<img src="{{dat.hero_Img.url}}" alt="{{dat.title}}">
+							</picture>
+						</figure>
+						<div>
+							<h3 class="title-summary-title">{{dat.title}}</h3>
+						</div>
+						<blockquote class="title-summary-body">
+							<p>{{dat.description}}</p>
+						</blockquote>
+					</a>
+				</li>
+			{% endif %}
+		{% endfor %}
+	</menu>
+</section>
+{% endblock %}

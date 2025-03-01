@@ -71,30 +71,23 @@
 				</div>
 				<menu>
 					<li>
-						<a href="about/index.html">
+						<a href="{% url 'about' %}">
 							<p>
 								About
 							</p>
 						</a>
 					</li>
 					<li>
-						<a href="work/index.html">
+						<a href="{% url 'work' %}">
 							<p>
-								Work
+								Events
 							</p>
 						</a>
 					</li>
 					<li>
-						<a href="/careers/index.html">
+						<a href="{% url 'blogs' %}">
 							<p>
-								Careers
-							</p>
-						</a>
-					</li>
-					<li>
-						<a href="/updates/index.html">
-							<p>
-								Updates
+								Blogs
 							</p>
 						</a>
 					</li>
@@ -358,7 +351,7 @@
 								</picture>
 							</figure>
 							<div>
-								<h3>ZCOER E-Cell</h3>
+								<h3 style = "text-align : center;"> ZCOER E-Cell</h3>
 							</div>
 						</a>
 					</section>
@@ -412,7 +405,7 @@
 					</address>
 					<aside>
 						<div>
-							<a class="button" href="">
+							<a class="button" href="{% url 'about' %}">
 								<div>
 									<p>Know More</p>
 								</div>
@@ -430,6 +423,7 @@
 					margin: 20px 0; 
 				}
 			</style>
+
 			<!-- Past Events -->
 			<section class="work" id="featured-work">
 				<h2 style="margin-bottom : 20px;" >Past Events</h2>
@@ -439,7 +433,7 @@
 						{% for event in events %}
 						  {% if event.status == 'completed'%}
 							<div class="slide">
-							  <a href="#">
+							  <a href="{% url 'single_work' event.slug %}">
 								<figure style="--aspect-ratio: 16 / 9">
 								  <picture>
 									<source media="(max-width: 767px)" sizes="90vw" srcset="{{ event.imgBanner.url }}">
@@ -452,12 +446,16 @@
 								</div>
 							  </a>
 							</div>
+							<br> <br> <br>
 						  {% endif %}
-						{% empty %}
-						  <div class="no-events">
-							<p>No past events to display</p>
-						  </div>
 						{% endfor %}
+						<div>
+							<a class="button" href="{% url 'work' %}">
+								<div>
+									<p>All past event</p>
+								</div>
+							</a>
+						</div>
 					  </div>
 					</div>
 				</section>	
@@ -505,9 +503,76 @@
 					}, 3000); // Change slide every 3000ms
 				});
 			</script>
+	
+			<!-- Ongoing Event -->
 
-			
-			
+			<section class="updates" id="updates">
+				<header>
+					<h2>Ongoing Event</h2>
+				</header>
+				<div>
+					{% for data in event  %}
+						{% if data.status == 'ongoing' and data.showCase %}
+							<section class="promo">
+								<a href="">
+									<figure style="--aspect-ratio:16 / 9">
+										<picture>
+											<source media="(max-width: 767px)" sizes="90vw" srcset="{{data.imgBanner.url}}">
+											<img src="{{data.imgBanner.url}}">
+										</picture>
+									</figure>
+									<div>
+										<h3>{{data.title}}</h3>
+									</div>
+								</a>
+							</section>
+							<div>
+								<a class="button" href="{{data.link}}">
+									<div>
+										<p>Check it now</p>
+									</div>
+								</a>
+							</div>
+						{% endif %}
+						{% empty %}
+						<div>
+							<a class="button" href="">
+								<div>
+									<p>No onGoing event</p>
+								</div>
+							</a>
+						</div>
+					{% endfor %}
+
+					<section class="updates">
+						{% for events in events %}
+							{% if events.status == 'ongoing' and data.showCase == 'False' %}
+								<menu>
+									<li>
+										<a href="{{events.link}}">
+											<div>
+												<p>{{events.date}}</p>
+											</div>
+											<div>
+												<h3>{{events.title}}</h3>
+											</div>
+										</a>
+									</li>
+								</menu>
+							{% endif %}
+							{% empty %}
+								<div>
+									<a class="button" href="">
+										<div>
+											<p>No onGoing event</p>
+										</div>
+									</a>
+								</div>
+						{% endfor %}
+
+				</div>
+			</section>
+
 			<!-- upcoming event -->
 
 			<section class="updates" id="updates">
@@ -516,7 +581,7 @@
 				</header>
 				<div>
 					{% for data in events  %}
-						{% if data.status == 'ongoing' and data.showCase %}
+						{% if data.status == 'upcoming' and data.showCase %}
 							<section class="promo">
 								<a href="">
 									<figure style="--aspect-ratio:16 / 9">
@@ -550,9 +615,13 @@
 								</menu>
 							{% endif %}
 							{% empty %}
-								<div class="no-events">
-									<p>No Upcoming events to display</p>
-								</div>
+							<div>
+								<a class="button" href="">
+									<div>
+										<p>No Upcoming event</p>
+									</div>
+								</a>
+							</div>
 						{% endfor %}
 						<div>
 							<a class="button" href="">
@@ -571,33 +640,25 @@
 					<address>
 						<h2>Join, Register, Explore</h2>
 						<menu>
+							{% for i in linkage %}
+								<li>
+									<a href="{{i.link}}">
+										<h3>
+											{{i.title}}
+										</h3>
+										<div>
+											<p>{{i.info}}</p>
+										</div>
+									</a>
+								</li>
+							{% endfor %}
 							<li>
-								<a href="mailto:hello@sylvain.co">
-									<h3>
-										Register your startup
-									</h3>
-									<div>
-										<p>hello@sylvain.co</p>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="mailto:newbiz@sylvain.co">
-									<h3>
-										Became member
-									</h3>
-									<div>
-										<p>newbiz@sylvain.co</p>
-									</div>
-								</a>
-							</li>
-							<li>
-								<a href="mailto:pr@sylvain.co">
+								<a href="{% url 'blogs' %}">
 									<h3>
 										Blogs
 									</h3>
 									<div>
-										<p>pr@sylvain.co</p>
+										<p>read latest blog</p>
 									</div>
 								</a>
 							</li>
@@ -607,9 +668,9 @@
 						<h2>Work with us</h2>
 						<p>We've always been driven to challenge conventions and create new opportunities.</p>
 						<div>
-							<a class="button" href="">
+							<a class="button" href="{{info.link}}">
 								<div>
-									<p>Make New With Us</p>
+									<p>Join our time</p>
 								</div>
 							</a>
 						</div>

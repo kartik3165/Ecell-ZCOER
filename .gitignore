@@ -1,52 +1,36 @@
-# # Python-related files
-# *.pyc
-# *.pyo
-# *.pyd
-# __pycache__/
-# *.swp
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
 
-# # Virtual environment
-# venv/
-# env/
-# *.venv
-# *.env
 
-# # Django-specific files
-# db.sqlite3  # Ignore SQLite database file
-# *.sqlite3
-# /media/  # Ignore uploaded media files
-# /static/  # Ignore collected static files
+# Local settings
+.env
+.env.local
+.env.*.local
+local_settings.py
 
-# # Environment variables and secrets
-# .env
-# *.secret
-# config/settings/local.py  # If using different settings for local development
+# Virtual Environment
+venv/
+/env/
+ENV/
 
-# # Logs and temporary files
-# *.log
-# *.out
-# *.pid
-# *.lock
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
 
-# # VS Code and PyCharm IDE settings
-# .vscode/
-# .idea/
-# *.iml
+# Coverage
+.coverage
+htmlcov/
 
-# # Migrations (if you don't want to track them)
-# **/migrations/*.pyc
-# **/migrations/*.py
-# !**/migrations/__init__.py  # Keep the init file
+# Package/Build files
+*.egg-info/
+dist/
+build/
 
-# # Node.js dependencies (if using React/Vue in Django)
-# node_modules/
-# package-lock.json
-# yarn.lock
-# npm-debug.log
-
-# # Compiled files and cache
-# *.tar.gz
-# *.zip
-# *.egg-info/
-# *.eggs/
-
+adminNot
+django_tinymce
+nested_admin

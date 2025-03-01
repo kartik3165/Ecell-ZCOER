@@ -1,0 +1,79 @@
+
+{% extends "base.html" %}
+
+{% block title %}Blogs{% endblock %}
+
+{% block body_class %}work nav--pre{% endblock %}
+
+{% block extra_css %}
+	<link href="../static/styles/work.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<style>
+	.event-item {
+		display: block; /* Default display */
+	}
+</style>
+
+<header>
+	<h1>Blogs</h1>
+	<menu>
+		<li class="current">
+			<a href="javascript:void(0)" onclick="filterEvents('all')">
+				<h2>All</h2>
+			</a>
+		</li>
+		{% for category in categories %}
+			<li>
+				<a href="javascript:void(0)" onclick="filterEvents('{{ category.slug }}')">
+					<h2>{{ category.name }}</h2>
+				</a>
+			</li>
+		{% endfor %}
+	</menu>
+</header>
+<section>
+	<menu>
+	{% for event in blogs %}
+		<li class="event-item {{ event.category.slug }}">
+			<a href="{% url 'single_blog' event.slug %}">
+				<figure style="--aspect-ratio:16 / 9">
+					<picture>
+						<source media="(max-width: 767px)" sizes="90vw" srcset="{{event.imgBanner.url}}">
+						<img src="{{event.hero_Img.url}}">
+					</picture>
+				</figure>
+				<div>
+					<h3 class="title-summary-title">{{event.title}}</h3>
+				</div>
+				<blockquote class="title-summary-body">
+					<p>{{event.description}}</p>
+				</blockquote>
+			</a>
+		</li>
+	{% endfor %}
+	</menu>
+</section>
+<script>
+	function filterEvents(selectedCategory) {
+		// Remove current class from all menu items
+		document.querySelectorAll('menu li').forEach(item => {
+			item.classList.remove('current');
+		});
+		
+		// Add current class to clicked menu item
+		event.target.closest('li').classList.add('current');
+		
+		// Show/hide events
+		document.querySelectorAll('.event-item').forEach(eventItem => {
+			if (selectedCategory === 'all') {
+				eventItem.style.display = 'block';
+			} else {
+				eventItem.style.display = eventItem.classList.contains(selectedCategory) ? 'block' : 'none';
+			}
+		});
+	}
+</script>
+{% endblock %}

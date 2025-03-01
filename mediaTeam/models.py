@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
-from contentTeam.models import Event as contentEvent
+from pcrTeam.models import Event as ContentEvent
 from tinymce.models import HTMLField
 from django.core.validators import URLValidator
 from django.utils.html import mark_safe
@@ -45,18 +45,18 @@ class SocialMediaLink(models.Model):
         verbose_name_plural = "Social Media Links"
 
 class Event(models.Model):
-    events = models.ForeignKey(contentEvent, verbose_name=("content_event"), on_delete=models.CASCADE)
-    
-    hero_Image = models.ImageField(upload_to='event_images')  # Migrated from EventImage
+    events = models.ForeignKey(ContentEvent, verbose_name=("content_event"), on_delete=models.CASCADE)
+    date = models.DateField(null=True, blank=True) 
+    hero_Image = models.ImageField(upload_to='event_images/hero/')  # Migrated from EventImage
     
     def __str__(self):
         return self.events.title
 
 class SectionContent(models.Model):
     SECTION_TYPE_CHOICES = [                      # Moved from EventImage
-        ('single', 'Single'),
-        ('double', 'Double'),
-        ('sticky', 'Sticky'),
+        ('single', 'Single (One Image only)'),
+        ('double', 'Double (Two Image Side by Side)'),
+        ('sticky', 'Sticky (Image and Text Side by Side)'),
     ]
     
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name="sections")  # Updated ForeignKey

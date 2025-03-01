@@ -22,5 +22,6 @@ urlpatterns = [
     path('', include('contentTeam.urls')),
     path('', include('GeneralApp.urls')),
     path('', include('mediaTeam.urls')),
-    path('', include('technicalTeam.urls'))
+    path('', include('technicalTeam.urls')),
+    path('', include('pcrTeam.urls'))
 ]
