@@ -4,7 +4,7 @@
 
 ## Step 1: Clone the Repository 
 ```sh
-git clone https://github.com/kartik3165/Ecell-ZCOER
+git clone https://github.com/kartik3165/Ecell-ZCOER/tree/Sharing
 cd Ecell-ZCOER
 ```
 
