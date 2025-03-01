@@ -1,3 +1,65 @@
+# Project Installation Guide
+
+
+
+## Step 1: Clone the Repository 
+```sh
+git clone <repository_url>
+cd <project_directory>
+```
+
+## Step 2: Create and Activate a Virtual Environment
+### For Windows (Command Prompt)
+```sh
+python -m venv env
+env\Scripts\activate
+```
+### For macOS/Linux
+```sh
+python3 -m venv env
+source env/bin/activate
+```
+
+## Step 3: Install Dependencies
+Ensure you have a `requirements.txt` file in the project directory, then run:
+```sh
+pip install -r requirements.txt
+```
+
+## Step 4: Set Up the Database
+Run migrations to apply database schema changes:
+```sh
+python manage.py migrate
+```
+
+## Step 5: Create a Superuser
+```sh
+python manage.py createsuperuser
+```
+Follow the prompts to create an admin account.
+
+## Step 6: Run the Development Server
+```sh
+python manage.py runserver
+```
+Access the project at `http://127.0.0.1:8000/`.
+
+## Step 7: Collect Static Files 
+```sh
+python manage.py collectstatic
+```
+
+## Step 8: Deactivate the Virtual Environment
+### For Windows
+```sh
+env\Scripts\deactivate
+```
+### For macOS/Linux
+```sh
+deactivate
+```
+
+
 # E-Cell Website Development Checklist
 
 ## 1. Public Pages
