@@ -5,7 +5,7 @@
 ## Step 1: Clone the Repository 
 ```sh
 git clone https://github.com/kartik3165/Ecell-ZCOER
-cd <project_directory>
+cd Ecell-ZCOER
 ```
 
 ## Step 2: Create and Activate a Virtual Environment
