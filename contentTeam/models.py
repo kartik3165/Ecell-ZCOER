@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 from tinymce.models import HTMLField
 from technicalTeam.models import CustomUser
+from pcrTeam.models import Event
 
 class BlogCategory(models.Model):
     name = models.CharField(max_length=150)
@@ -35,3 +36,13 @@ class BlogPost(models.Model):
     def __str__(self):
         return self.title
     
+class EventInformations(models.Model):
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event_texts')
+    order = models.PositiveIntegerField(default=0, help_text="Determines the display order")
+    text = HTMLField(blank=True)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return f"Text {self.order} for {self.event.title}"

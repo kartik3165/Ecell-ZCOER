@@ -1,7 +1,7 @@
 
 {% extends "base.html" %}
 
-{% block title %}Blogs{% endblock %}
+{% block title %}Achivement{% endblock %}
 
 {% block body_class %}work nav--pre{% endblock %}
 
@@ -18,31 +18,17 @@
 </style>
 
 <header>
-	<h1>Blogs</h1>
-	<menu>
-		<li class="current">
-			<a href="javascript:void(0)" onclick="filterEvents('all')">
-				<h2>All</h2>
-			</a>
-		</li>
-		{% for category in categories %}
-			<li>
-				<a href="javascript:void(0)" onclick="filterEvents('{{ category.slug }}')">
-					<h2>{{ category.name }}</h2>
-				</a>
-			</li>
-		{% endfor %}
-	</menu>
+	<h1> Achivement </h1>
 </header>
 <section>
-	<menu>
-	{% for event in blogs %}
-		<li class="event-item {{ event.category.slug }}">
-			<a href="{% url 'single_blog' event.slug %}">
+	<menu>		
+	{% for event in event %}
+		<li class="event-item {% if event.status == 'ongoing' %}ongoing{% elif event.status == 'completed' %}past{% else %}upcoming{% endif %}">
+			<a href="{% url 'single_achivement' event.slug %}">
 				<figure style="--aspect-ratio:16 / 9">
 					<picture>
-						<source media="(max-width: 767px)" sizes="90vw" srcset="{{event.imgBanner.url}}">
-						<img src="{{event.hero_Img.url}}">
+						<source media="(max-width: 767px)" sizes="90vw" srcset="{{event.header_image.url}}">
+						<img src="{{event.header_image.url}}">
 					</picture>
 				</figure>
 				<div>
@@ -58,7 +44,7 @@
 	<br/><br/>
 </section>
 <script>
-	function filterEvents(selectedCategory) {
+	function filterEvents(status) {
 		// Remove current class from all menu items
 		document.querySelectorAll('menu li').forEach(item => {
 			item.classList.remove('current');
@@ -68,11 +54,11 @@
 		event.target.closest('li').classList.add('current');
 		
 		// Show/hide events
-		document.querySelectorAll('.event-item').forEach(eventItem => {
-			if (selectedCategory === 'all') {
-				eventItem.style.display = 'block';
+		document.querySelectorAll('.event-item').forEach(event => {
+			if (status === 'all') {
+				event.style.display = 'block';
 			} else {
-				eventItem.style.display = eventItem.classList.contains(selectedCategory) ? 'block' : 'none';
+				event.style.display = event.classList.contains(status) ? 'block' : 'none';
 			}
 		});
 	}

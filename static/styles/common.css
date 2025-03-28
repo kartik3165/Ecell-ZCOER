@@ -801,7 +801,7 @@ body figure > figcaption > p,
 body .carousel-caption,
 body > header > details > summary > div {
 	--typography--size: 1.2rem;
-	text-transform: uppercase;
+	 text-transform: uppercase;
 }
 
 @media (min-width: 48em) and (min-height: 30em),
@@ -809,7 +809,7 @@ body > header > details > summary > div {
 
 	body a.button > div,
 	body figure > figcaption > p,
-	body .carousel-caption,
+	body .carousel-content,
 	body > header > details > summary > div {
 		--typography--size: 1.3rem;
 	}
@@ -1074,7 +1074,7 @@ body > address > div > section > menu > li div p {
 
 	body > header > details > noscript > address > section > menu > li div p,
 	body > address > div > section > menu > li div p {
-		--color--safari: #F8F7F7;
+		--color--safari: #1E3A8A;
 		text-decoration-color: var(--color--background);
 	}
 }
@@ -1374,7 +1374,7 @@ body > address > div > section > menu > li div:not(:first-of-type) {
 	pointer-events: none;
 }
 
-:root {
+/* :root {
 	--typography--size: 1.2rem;
 	--link--enlargement: 0.4rem;
 	--link--highlight: rgba(128, 128, 128, 0.066);
@@ -1407,6 +1407,41 @@ body > address > div > section > menu > li div:not(:first-of-type) {
 	--slide--duration: 500ms;
 	--cubic--in-out: cubic-bezier(0.25, 1, 0.5, 1);
 	--retina--shift: -0.05rem;
+} */
+
+:root {
+    --typography--size: 1.2rem;
+    --link--enlargement: 0.4rem;
+    --link--highlight: rgba(232, 240, 254, 0.1); /* Light blue subtlety */
+    --link--outline: var(--color--secondary-blue); /* Updated to secondary blue */
+    --link--outline--width: 0.2rem;
+    --margin: 2rem;
+    --gutter: 1.5rem;
+    --margin--1-5: calc(var(--margin) * 1.5);
+    --margin--2: calc(var(--margin) * 2);
+    --margin--3: calc(var(--margin) * 3);
+    --margin--4: calc(var(--margin) * 4);
+    --margin--5: calc(var(--margin) * 5);
+    --scrollbar--custom: 0.5rem;
+    --color: #1E3A8A; /* Secondary blue for text */
+    --color--background: #FFFFFF; /* White background */
+    --color--faded: #6C8EBF; /* Muted blue-gray for faded text */
+    --color--gray: #AAB3B9; /* Neutral gray (unchanged) */
+    --color--primary-blue: #2A5CAA; /* Primary blue accent */
+    --color--secondary-blue: #1E3A8A; /* Darker blue for accents */
+    --color--hover: #1E3A8A; /* Hover states use secondary blue */
+    --color--reset: #2A5CAA; /* Primary blue for reset elements */
+    --color--background--reset: #E8F0FE; /* Light blue for reset backgrounds */
+    --border: var(--border--width) solid var(--color--primary-blue); /* Blue borders */
+    --border--width: 0.1rem;
+    --page--max: 168rem;
+    --contact--width: 22rem;
+    --header--width: 100vw;
+    --sticky--width: 4.8rem;
+    --hover--duration: 100ms;
+    --slide--duration: 500ms;
+    --cubic--in-out: cubic-bezier(0.25, 1, 0.5, 1);
+    --retina--shift: -0.05rem;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2) {
@@ -1493,7 +1528,7 @@ body > main {
 
 @media (min-width: 35.5em) {
 	body > main {
-		border-left: 1px solid #F8F7F7;
+		border-left: 1px solid #1E3A8A;
 	}
 }
 
@@ -1544,14 +1579,14 @@ body.home > main > * {
 body > aside,
 body .invert {
 	--color--hover: var(--color--yellow);
-	--color--invert: #F8F7F7;
+	--color--invert: #1E3A8A;
 	background-color: var(--color--background);
 	position: relative;
 }
 
 body > aside > *,
 body .invert > * {
-	--color: #F8F7F7;
+	--color: #1E3A8A;
 	--border: var(--border--width) solid var(--color);
 }
 
@@ -1563,8 +1598,8 @@ body a.button > div {
 
 @media (any-hover: hover) {
 	body a.button > div:hover {
-		--color: black;
-		background-color: white;
+		--color: White;
+		background-color: #1E3A8A;
 	}
 }
 
@@ -1873,7 +1908,7 @@ body > header > nav > menu > li > a {
 	}
 
 	body > header > nav > menu > li > a:hover > p {
-		--color: #18191F;
+		--color: #ffffff;
 	}
 }
 
@@ -1960,12 +1995,12 @@ body > header > details > summary > div > p {
 }
 
 body > header > details > summary > div > p:not(.close) {
-	color: #000;
+	color: #ffffff;
 	opacity: 1;
 }
 
 body > header > details > summary > div > p.close {
-	color: #000;
+	color: #ffffff;
 	margin-top: initial;
 	opacity: 0;
 	position: absolute;
@@ -1977,7 +2012,7 @@ body > header > details > summary > div > svg {
 	margin-bottom: var(--icon--inset);
 	margin-top: var(--icon--inset);
 	stroke-width: var(--border--width);
-	stroke: #000;
+	stroke: #ffffff;
 	transform: translateY(var(--retina--shift));
 	transition-delay: calc(var(--slide--duration) - var(--hover--duration) * 2), 0ms;
 	transition-duration: var(--hover--duration), calc(var(--slide--duration) - var(--hover--duration));
@@ -2625,7 +2660,8 @@ body > address > div > section p {
 }
 
 .footer-link:hover .footer-link-title {
-	color: var(--color--hover);
+	/* color: var(--color--hover); */
+	color: black;
 }
 
 .footer-links {

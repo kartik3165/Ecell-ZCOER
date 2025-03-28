@@ -24,6 +24,9 @@
 		<meta name="twitter:site" content="@sylvainlabs">
 		<meta name="twitter:card" content="summary_large_image">
 		<meta content="#212023" name="theme-color">
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
 		<link as="font" crossorigin href="fonts/lt--helvetica-neue--ultra-light.woff2" rel="preload" type="font/woff2">
 		<link as="font" crossorigin href="fonts/lt--helvetica-neue--ultra-light--italic.woff2" rel="preload" type="font/woff2">
 		<link as="font" crossorigin href="fonts/lt--helvetica-neue--thin.woff2" rel="preload" type="font/woff2">
@@ -62,11 +65,11 @@
 		<header>
 			<nav>
 				<div>
-					<a href="index.html">
+					<a href="#">
 						<img src="/images/MainLogo.svg" alt="" style="overflow:visible" viewBox="0 0 159 32" xmlns="http://www.w3.org/2000/svg">
 					</a>
 					<blockquote>
-						<p>Sample text to add</p>
+						<p>Zest for the zenith</p>
 					</blockquote>
 				</div>
 				<menu>
@@ -91,9 +94,16 @@
 							</p>
 						</a>
 					</li>
+					<li>
+						<a href="{% url 'achive' %}">
+							<p>
+								Achivement
+							</p>
+						</a>
+					</li>
 				</menu>
 			</nav>
-			<details>
+			<details> 
 				<summary>
 					<div>
 						<p>Contact</p>
@@ -104,104 +114,41 @@
 					</div>
 				</summary>
 				<noscript>
-					<address>
+					<address >
 						<section>
-							<h2>Get in touch</h2>
+							<h2 id= "detail">Get in touch</h2>
 							<menu>
 								<li>
-									<a href="mailto:hello@sylvain.co">
+									<a href="mailto:zealecell@gmail.com">
 										<h3>
 											General Inquiries
 										</h3>
 										<div>
-											<p>hello@sylvain.co</p>
-										</div>
-									</a>
-								</li>
-								<li>
-									<a href="mailto:newbiz@sylvain.co">
-										<h3>
-											New Business
-										</h3>
-										<div>
-											<p>newbiz@sylvain.co</p>
-										</div>
-									</a>
-								</li>
-								<li>
-									<a href="mailto:pr@sylvain.co">
-										<h3>
-											Press Inquiries
-										</h3>
-										<div>
-											<p>pr@sylvain.co</p>
+											<p>zealecell@gmail.com</p>
 										</div>
 									</a>
 								</li>
 							</menu>
 						</section>
 						<section>
-							<h2>Offices</h2>
+							<h2>Address</h2>
 							<menu>
 								<li>
 									<h3>
-										New York City
+										ZCOER
 									</h3>
 									<div>
-										<a href="https://maps.google.com/?q=176+Grand+Street,New+York,+NY+10013" target="_blank">
+										<a href="https://maps.app.goo.gl/uLLjB9ZeEm4sQTE3A" target="_blank">
 											<p>
-												176 Grand Street, 3rd Fl.
-												<br>
-												New York, NY 10013
+												S. No. 39 Dhayari-Narhe <br>
+												Road, Narhe, Pune-411041 <br>
 											</p>
 										</a>
 									</div>
 									<div>
-										<a href="tel:+16465642455">
+										<a href="tel:02067206000">
 											<p>
-												+1 (646) 564 2455
-											</p>
-										</a>
-									</div>
-								</li>
-								<li>
-									<h3>
-										Richmond
-									</h3>
-									<div>
-										<a href="https://maps.google.com/?q=217+W.+7th+Street,Richmond,+VA+23224" target="_blank">
-											<p>
-												217 W. 7th Street
-												<br>
-												Richmond, VA 23224
-											</p>
-										</a>
-									</div>
-									<div>
-										<a href="tel:+18042038540">
-											<p>
-												+1 (804) 203 8540
-											</p>
-										</a>
-									</div>
-								</li>
-								<li>
-									<h3>
-										Amsterdam
-									</h3>
-									<div>
-										<a href="https://maps.google.com/?q=Keizersgracht+555,1017+DR+Amsterdam" target="_blank">
-											<p>
-												Keizersgracht 555
-												<br>
-												1017 DR Amsterdam
-											</p>
-										</a>
-									</div>
-									<div>
-										<a href="tel:+31207084560">
-											<p>
-												+31 20 708 4560
+												020-67206000
 											</p>
 										</a>
 									</div>
@@ -215,7 +162,7 @@
 		<aside>
 			<div>
 				<div>
-					<a href="index.html"><svg style="overflow:visible" viewBox="0 0 159 32" xmlns="http://www.w3.org/2000/svg">
+					<a href="#"><svg style="overflow:visible" viewBox="0 0 159 32" xmlns="http://www.w3.org/2000/svg">
 							<path fill="currentcolor" d="M152.605703.0h10.282349V1.2808012H162.340703c-2.46958899999999.0-3.79235.91253013-3.79235 3.74789157V32.277494H158.088971L137.429789 5.30245181V26.9750422c0 2.5159759 1.326019 3.7478915 3.932445 3.7478915H142.092033v1.2742832H107.905502V30.7229337H109.000201C111.013665 30.7229337 111.93243 30.0711265 111.93243 28.767512 111.93243 28.1743675 111.74998 27.3498313 111.157018 25.9777771l-1.599694-3.611012L109.511712 22.275512H96.8053865l-1.6518222 4.1520121C94.6974398 27.5681867 94.5573444 28.2558434 94.5573444 28.8033614 94.5573444 30.0385361 95.427239 30.7229337 97.4374448 30.7229337H98.2161145v1.2742832H88.0217319V30.7229337H88.3116968C90.5923193 30.7229337 92.1073042 29.6735241 93.4789357 26.1993916L102.373363 3.83914458C101.506727 1.9651988 99.998258 1.2808012 97.9424398 1.2808012h-1.417244C93.3258082 1.2808012 91.9997892 2.10207831 90.764995 5.16557229L79.9320382 32.46H79.4759137L68.5973444 6.21824096c-1.6909187-4.07053614-2.9713253-4.93743976-6.079488-4.93743976H59.9668173C56.6762048 1.2808012 55.4414106 2.5159759 55.4414106 5.02869277V26.9750422c0 2.5159759 1.3716316 3.4741325 4.3429569 3.4741325h1.0034739c4.8446937.0 6.6724498-1.5545602 8.1450803-7.3589036H70.1221034l-1.3423092 8.9069458H47.1171386V30.7229337H47.8469378c2.6064257.0 3.9324447-1.2319156 3.9324447-3.702265V5.02869277c0-2.51271687-1.326019-3.74789157-3.9324447-3.74789157-2.4207179.0-3.6555121.77565061-5.3008183 3.9303976L35.4142871 18.9610723v8.0595964c0 2.4703494 1.3260191 3.702265 3.9324448 3.702265H40.0928213v1.2742832H27.0965311V30.7229337H27.8295884c2.6064257.0 3.9291867-1.2319156 3.9291867-3.702265V19.5248855L23.1673444 4.43554819C21.6588755 1.82831928 21.0170432 1.2808012 19.5541867 1.2808012c-1.7821435.0-2.6064257.77565061-2.238268 3.56538555L17.8632681 8.9623494H16.6773444c-1.1435693-4.88855422-3.749995-7.36216265-7.49347392-7.36216265-3.3362249.0-5.6689759 2.0564518-5.6689759 5.07431927.0 8.00093378 16.13377512 7.22528318 16.13377512 17.23704218.0 4.8005602-3.6555121 8.5484518-9.3668424 8.5484518C7.85785141 32.46 5.84764558 31.7299759 3.60611948 30.2666687 3.29906351 30.0460872 2.93465542 29.9192975 2.55703313 29.9016566c-.73305723.0-1.28040662.5018916-1.32601907 2.1020783H-.00703815261L-.6 21.1674398H.585923695C1.97384538 26.4731506 5.84438755 30.8141867 10.2785693 30.8141867c3.6098996.0 5.7048142-2.2389578 5.7048142-5.3024518.0-8.4115722-15.860100367-7.1698795-15.860100367-17.41954815C.129799197 3.15474699 3.83092369.0 9.0437751.0H31.1202008V1.2808012H29.6671185c-1.417244.0-2.4695884.59314458-2.4695884 1.82831928C27.2554917 3.85469043 27.4912223 4.57551062 27.8849749 5.2111988l6.7180622 11.8889639L40.8193624 5.07431928C41.168642 4.45942608 41.3663314 3.77009307 41.3960341 3.06349398c0-1.09829518-.592961800000005-1.78269278-2.2806225-1.78269278H37.5613303V0H75.7747892V1.2808012h-1.006732c-1.8733684.0-2.9713253.77565061-2.9713253 2.01082531C71.8514012 3.99071697 72.0382446 4.67307147 72.3473394 5.30245181L80.8931576 25.7398675 89.038238 5.20793976C89.3038712 4.60053543 89.458362 3.95037028 89.4943624 3.28836747c0-1.32642771-.866636499999999-2.0108253-2.8801004-2.0108253H85.6107882V0H104.761501L115.40875 26.1993916c1.462856 3.5653855 2.606426 4.5235421 5.16723900000001 4.5235421C122.856611 30.7229337 124.003439 29.4910181 124.003439 26.9750422V5.02869277c0-2.51271687-1.326019-3.74789157-3.932445-3.74789157h-.729799V0h18.92265l18.694589 24.5503193V5.02869277c0-2.83536144-1.326019-3.74789157-3.79560800000002-3.74789157H152.615477L152.605703.0zM97.3918323 20.7111747H108.908976L103.197646 6.04551205 97.3918323 20.7111747zM135.836611 5.02869277c0-2.51271687-1.326019-3.74789157-3.792349-3.74789157H131.4513c-2.46958800000002.0-3.795607 1.2351747-3.795607 3.74789157V26.9750422c0 2.5159759 1.32601899999999 3.7478915 3.795607 3.7478915h.592962c2.46633.0 3.792349-1.2319156 3.792349-3.7478915V5.02869277z" />
 						</svg>
 					</a>
@@ -231,106 +178,43 @@
 		<address>
 			<div>
 				<section>
-					<h2>Get in touch</h2>
+					<h2 id= "detail" >Get in touch</h2>
 					<menu>
 						<li>
-							<a href="mailto:hello@sylvain.co">
+							<a href="mailto:zealecell@gmail.com">
 								<h3>
 									General Inquiries
 								</h3>
 								<div>
-									<p>hello@sylvain.co</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="mailto:newbiz@sylvain.co">
-								<h3>
-									New Business
-								</h3>
-								<div>
-									<p>newbiz@sylvain.co</p>
-								</div>
-							</a>
-						</li>
-						<li>
-							<a href="mailto:pr@sylvain.co">
-								<h3>
-									Press Inquiries
-								</h3>
-								<div>
-									<p>pr@sylvain.co</p>
+									<p>zealecell@gmail.com</p>
 								</div>
 							</a>
 						</li>
 					</menu>
 				</section>
 				<section>
-					<h2>Offices</h2>
+					<h2>Address</h2>
 					<menu>
 						<li>
 							<h3>
-								New York City
+								ZCOER
 							</h3>
 							<div>
-								<a href="https://maps.google.com/?q=176+Grand+Street,New+York,+NY+10013" target="_blank">
+								<a href="https://maps.app.goo.gl/uLLjB9ZeEm4sQTE3A" target="_blank">
 									<p>
-										176 Grand Street, 3rd Fl.
-										<br>
-										New York, NY 10013
+										S. No. 39 Dhayari-Narhe <br>
+										Road, Narhe, Pune-411041 <br>
 									</p>
 								</a>
 							</div>
 							<div>
-								<a href="tel:+16465642455">
+								<a href="tel:02067206000">
 									<p>
-										+1 (646) 564 2455
+										020-67206000
 									</p>
 								</a>
 							</div>
-						</li>
-						<li>
-							<h3>
-								Richmond
-							</h3>
-							<div>
-								<a href="https://maps.google.com/?q=217+W.+7th+Street,Richmond,+VA+23224" target="_blank">
-									<p>
-										217 W. 7th Street
-										<br>
-										Richmond, VA 23224
-									</p>
-								</a>
-							</div>
-							<div>
-								<a href="tel:+18042038540">
-									<p>
-										+1 (804) 203 8540
-									</p>
-								</a>
-							</div>
-						</li>
-						<li>
-							<h3>
-								Amsterdam
-							</h3>
-							<div>
-								<a href="https://maps.google.com/?q=Keizersgracht+555,1017+DR+Amsterdam" target="_blank">
-									<p>
-										Keizersgracht 555
-										<br>
-										1017 DR Amsterdam
-									</p>
-								</a>
-							</div>
-							<div>
-								<a href="tel:+31207084560">
-									<p>
-										+31 20 708 4560
-									</p>
-								</a>
-							</div>
-						</li>
+						</li> 
 					</menu>
 				</section>
 			</div>
@@ -338,21 +222,25 @@
 
 		<main>
 			<section class="updates" id="updates">
+				{% comment %} 
 				<header>
 					<h2>ZCOER ANIMATIONS</h2>
-				</header>
+				</header> 
+				{% endcomment %}
 				<div>
 					<section class="promo">
-						<a href="#">
+						<a href="{{ info.img_link|default:'#updates' }}">
 							<figure style="--aspect-ratio:16 / 9">
 								<picture>
-									<source media="(max-width: 767px)" sizes="90vw" srcset="../static/images/Updates/progress-report.gif">
-									<img src="../static/images/Updates/progress-report.gif">
+									<source media="(max-width: 767px)" sizes="90vw" srcset="{{ info.main_img.url }}">
+									<img src="{{ info.main_img.url }}">
 								</picture>
 							</figure>
+							{% comment %} 
 							<div>
 								<h3 style = "text-align : center;"> ZCOER E-Cell</h3>
 							</div>
+							{% endcomment %}
 						</a>
 					</section>
 				</div>
@@ -372,7 +260,7 @@
 									</h3>
 									<div>
 										<p style = "max-width: 40ch;">
-											{{info.vision1}} {{info.vision2}}
+											The E-Cell envisions a dynamic entrepreneurial ecosystem that fosters innovation, nurtures creative minds, and empowers students to become future leaders and change-makers. By bridging the gap between ideas and execution, we aim to create an environment where aspiring entrepreneurs can develop groundbreaking solutions that drive economic growth and social impact.
 										</p>
 									</div>
 								</a>
@@ -384,7 +272,7 @@
 									</h3>
 									<div>
 										<p style = "max-width: 40ch;">
-											{{info.mission1}} {{info.mission2}}
+											Our mission is to cultivate an entrepreneurial mindset among students by providing mentorship, skill development programs, networking opportunities, and real-world exposure to the startup ecosystem. We strive to inspire and support individuals in transforming their ideas into successful ventures through workshops, competitions, industry interactions, and hands-on learning experiences.
 										</p>
 									</div>
 								</a>
@@ -396,7 +284,7 @@
 									</h3>
 									<div>
 										<p style = "max-width: 40ch;">
-											{{info.goals1}} {{info.goals2}}
+											The primary goal of the E-Cell is to encourage and support students in their entrepreneurial journey by equipping them with the necessary knowledge, resources, and industry connections. We aim to foster a culture of innovation, problem-solving, and self-sustainability, helping students develop their ventures and contribute to the growth of the startup ecosystem.
 										</p>
 									</div>
 								</a>
@@ -415,92 +303,103 @@
 				</div>
 			</section>
 			<hr />
-			<style>
-				hr {
-					border: none;
-					height: 2px;
-					background-color: #ffffff;
-					margin: 20px 0; 
-				}
-			</style>
-
+			
 			<!-- Past Events -->
+
 			<section class="work" id="featured-work">
-				<h2 style="margin-bottom : 20px;" >Past Events</h2>
-				<section class="past-events" >
+				<h2 style="margin-bottom: 20px;">Past Events</h2>
+				<section class="past-events">
 					<div class="carousel">
-					  <div class="slides">
-						{% for event in events %}
-						  {% if event.status == 'completed'%}
-							<div class="slide">
-							  <a href="{% url 'single_work' event.slug %}">
-								<figure style="--aspect-ratio: 16 / 9">
-								  <picture>
-									<source media="(max-width: 767px)" sizes="90vw" srcset="{{ event.imgBanner.url }}">
-									<img src="{{ event.imgBanner.url }}" alt="{{ event.title }}">
-								  </picture>
-								</figure>
-								<div class="carousel-content" style = "font-size : 5rem;">
-								  <h3>{{ event.date }}</h3>
-								  <p>{{ event.title }}</p>
+						<div class="slides">
+							{% for event in events %}
+								{% if event.status == 'completed' %}
+								<div class="slide">
+									<a href="{% url 'single_work' event.slug %}">
+										<figure style="--aspect-ratio: 16 / 9">
+											<picture>
+												<source media="(max-width: 767px)" sizes="90vw" srcset="{{ event.header_image.url }}">
+												<img src="{{ event.header_image.url }}" alt="{{ event.title }}">
+											</picture>
+										</figure>
+										<div class="carousel-content" style="font-size: 5rem;">
+											<h3 style=
+											"margin-bottom: 20px; 
+											font-size : 1.8rem;
+											margin-top : 10px;"
+											>
+											{{ event.title }}</h3>
+											<h3>{{ event.date }}</h3> 
+										</div>
+									</a>
 								</div>
-							  </a>
-							</div>
-							<br> <br> <br>
-						  {% endif %}
-						{% endfor %}
-						<div>
+								{% endif %}
+							{% endfor %}
+						</div>
+						<!-- Move the button outside slides container -->
+						<div style="margin-top: 30px;">
 							<a class="button" href="{% url 'work' %}">
 								<div>
 									<p>All past event</p>
 								</div>
 							</a>
 						</div>
-					  </div>
 					</div>
-				</section>	
-			</section>
+				</section>
+			</section>			
 			<style>
-			.carousel {
-				position: relative;
-				overflow: hidden;
+				.carousel {
+					overflow: hidden;
+					position: relative;
 				}
-				.slides {
-				position: relative;
-				}
-				.slide {
-				position: absolute;
-				width: 100%;
-				opacity: 0;
-				transition: opacity 1s ease-in-out;
-				}
-				.slide.active {
-				opacity: 1;
-				position: relative;
-				}
-
-				.carousel-content {
 				
-				margin : 5px;
-				font-family: "GT Alpina", serif;
+				.slides {
+					display: flex;
+					transition-timing-function: ease-out;
 				}
+				
+				.slide {
+					flex-shrink: 0;
+					width: 100%;
+					opacity: 0;
+					transition: opacity 0.5s ease-in-out;
+				}
+				
+				.slide.swiper-slide-active {
+					opacity: 1;
+				}
+				
+				/* Remove br tags spacing */
+				br {
+					display: none;
+				}			
 			</style>
 			<script>
 				document.addEventListener('DOMContentLoaded', () => {
-					const slides = document.querySelectorAll('.slide');
-					let currentSlide = 0;
-					
-					// Ensure there's at least one slide
-					if(slides.length === 0) return;
-				
-					// Initialize first slide as active
-					slides[currentSlide].classList.add('active');
-				
-					setInterval(() => {
-					slides[currentSlide].classList.remove('active');
-					currentSlide = (currentSlide + 1) % slides.length;
-					slides[currentSlide].classList.add('active');
-					}, 3000); // Change slide every 3000ms
+					new Swiper('.carousel', {
+						wrapperClass: 'slides',
+						slideClass: 'slide',
+						loop: true,
+						speed: 800,
+						autoplay: {
+							delay: 3000,
+							disableOnInteraction: false,
+						},
+						effect: 'fade',
+						fadeEffect: {
+							crossFade: true
+						},
+						on: {
+							init: function () {
+								// Initialize first slide
+								this.slides[this.activeIndex].classList.add('swiper-slide-active');
+							},
+							slideChange: function () {
+								// Update slide classes
+								this.slides.forEach(slide => slide.classList.remove('swiper-slide-active'));
+								this.slides[this.activeIndex].classList.add('swiper-slide-active');
+							}
+						}
+					});
 				});
 			</script>
 	
@@ -511,14 +410,14 @@
 					<h2>Ongoing Event</h2>
 				</header>
 				<div>
-					{% for data in event  %}
-						{% if data.status == 'ongoing' and data.showCase %}
+					{% for data in events  %}
+						{% if data.status == 'ongoing' %}
 							<section class="promo">
 								<a href="">
 									<figure style="--aspect-ratio:16 / 9">
 										<picture>
-											<source media="(max-width: 767px)" sizes="90vw" srcset="{{data.imgBanner.url}}">
-											<img src="{{data.imgBanner.url}}">
+											<source media="(max-width: 767px)" sizes="90vw" srcset="{{data.header_image.url}}">
+											<img src="{{data.header_image.url}}">
 										</picture>
 									</figure>
 									<div>
@@ -538,7 +437,7 @@
 						<div>
 							<a class="button" href="">
 								<div>
-									<p>No onGoing event</p>
+									<p>No OnGoing event</p>
 								</div>
 							</a>
 						</div>
@@ -580,60 +479,62 @@
 					<h2>Upcoming Event</h2>
 				</header>
 				<div>
-					{% for data in events  %}
+					{% for data in events %}
 						{% if data.status == 'upcoming' and data.showCase %}
 							<section class="promo">
 								<a href="">
 									<figure style="--aspect-ratio:16 / 9">
 										<picture>
 											<source media="(max-width: 767px)" sizes="90vw" srcset="{{data.imgBanner.url}}">
-											<img src="{{data.imgBanner.url}}">
+											<img src="{{data.header_image.url}}">
 										</picture>
 									</figure>
 									<div>
-										<h3>{{data.title}}</h3>
+										<h3 style="margin-bottom: 10px;">{{data.title}}</h3>
+										<p>{{data.date}}</p>
 									</div>
 								</a>
 							</section>
 						{% endif %}
 					{% endfor %}
-
+			
 					<section class="updates">
-						{% for events in events %}
-							{% if events.status == 'upcoming' %}
+						{% for event in events %}
+							{% if event.status == 'upcoming' and data.showCase == 'False' %}
 								<menu>
 									<li>
 										<a href="">
 											<div>
-												<p>{{events.date}}</p>
+												<p>{{event.date}}</p>
 											</div>
 											<div>
-												<h3>{{events.title}}</h3>
+												<h3>{{event.title}}</h3>
 											</div>
 										</a>
 									</li>
 								</menu>
 							{% endif %}
-							{% empty %}
+						{% empty %}
 							<div>
-								<a class="button" href="">
+								<a class="button" href="#updates">
 									<div>
 										<p>No Upcoming event</p>
 									</div>
 								</a>
 							</div>
 						{% endfor %}
-						<div>
-							<a class="button" href="">
-								<div>
-									<p>View all Upcoming events</p>
-								</div>
-							</a>
-						</div>
+						{% if events %}  <!-- Check if there are any events -->
+							<div>
+								<a class="button" href="{% url 'work' %}">
+									<div>
+										<p>View all Upcoming events</p>
+									</div>
+								</a>
+							</div>
+						{% endif %}
 					</section>
 				</div>
-			</section>
-			
+			</section>			
 
 			<section class="contact" id="get-in-touch">
 				<div>
@@ -668,9 +569,9 @@
 						<h2>Work with us</h2>
 						<p>We've always been driven to challenge conventions and create new opportunities.</p>
 						<div>
-							<a class="button" href="{{info.link}}">
+							<a class="button" href="{{info.link|default:'#'}}">
 								<div>
-									<p>Join our time</p>
+									<p>Join our Team</p>
 								</div>
 							</a>
 						</div>
@@ -681,35 +582,34 @@
 			<footer class="main-page-footer invert" id="footer">
 				<menu class="links footer-links" style="--link--count:2">
 					<li>
-						<a class="footer-link" href="careers.1">
-							<p class="footer-link-title">Careers</p>
+						<a class="" href="{% url 'index' %}">
+							<p class="footer-link-title">Home</p>
 						</a>
 					</li>
 					<li>
-						<a class="footer-link" href="privacy">
-							<p class="footer-link-title">Privacy Policy</p>
+						<a class="" href="{% url 'achive' %}">
+							<p class="footer-link-title">Achivement</p>
+						</a>
+					</li>
+					<li>
+						<a class="" href="{% url 'about' %}">
+							<p class="footer-link-title">About Us</p>
+						</a>
+					</li>
+					<li>
+						<a class="" href = "#detail">
+							<p class="footer-link-title">Contact Us</p>
 						</a>
 					</li>
 				</menu>
 				<menu class="links footer-promo-links" style="--link--count:2">
-					<li>
+					{% comment %} <li>
 						<a class="footer-link" href="https://progressbysylvain.co">
 							<p class="footer-link-title">Progress Report</p>
 							<p class="promo-description">Our bi-weekly newsletter on need-to-know leadership imperatives.</p>
 						</a>
-					</li>
-					<li>
-						<a class="footer-link" href="https://thisisnonsense.com/">
-							<p class="footer-link-title">Critical Nonsense</p>
-							<p class="promo-description">Our high-low-brow podcast on science, culture and tech.</p>
-						</a>
-					</li>
-					<li>
-						<a class="footer-link" href="https://impact.sylvain.co">
-							<p class="footer-link-title">Impact</p>
-							<p class="promo-description">An annual assessment on SYLVAIN’s relationship to impact and progress.</p>
-						</a>
-					</li>
+					</li> {% endcomment %}
+					
 				</menu>
 				<menu class="social footer-social">
 					{% for link in socialLink %}
@@ -745,13 +645,13 @@
 				<div class="b-corp-wrapper">
 					<div>&nbsp;</div>
 					<p class="footer-copyright">
-						&copy; SYLVAIN 2024
+						&copy; ZCOER E-cell 2024
 					</p>
 				</div>
 			</footer>
 
 		</main>
-	
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 	</body>
 
 </html>

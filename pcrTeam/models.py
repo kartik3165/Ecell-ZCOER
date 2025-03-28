@@ -11,14 +11,13 @@ class Event(models.Model):
         ('ongoing', 'Ongoing'),
         ('completed', 'Completed'),
     ]
-     
-    title = models.CharField(max_length=150)
+    title = models.CharField(max_length=200)
+    header_image = models.ImageField(upload_to='event_headers/')
+    detail_description = HTMLField(blank=True)
     date = models.DateField(auto_now=False, auto_now_add=False)
     tags = models.CharField(max_length=150, help_text="Seprate the tag with comma")
     description = models.TextField(max_length=450, blank=True, default='', help_text="Enter 10 words description only")
-    detail_description = HTMLField(blank=True)
     slug = models.SlugField(unique=True, blank=True, help_text="keep empty")
-    imgBanner = models.ImageField(upload_to='event_Banner/')
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='upcoming')
     link = models.URLField(blank=True, null=True, help_text="Add event link (only for upcoming and ongoing events)")
     showCase = models.BooleanField(default=False)

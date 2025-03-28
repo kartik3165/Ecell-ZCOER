@@ -17,7 +17,7 @@
 		<h1 class="about-section-title">Overview</h1>
 		<span id="about-overview-content-wrapper" class="about-overview-content-wrapper">
 			<h1>We Make New.</h1>
-			{{info.general}}
+			{% lorem 1 b random %}
 		</span>
 	</section>
 </header>
@@ -32,8 +32,8 @@
 			<div class="capabilities-item-wrapper">
 				<div class="capabilities-expand-wrapper">
 					<div class="capabilities-expand-content">
-						<p>{{info.vision1}}</p>
-						<p>{{info.vision2}}</p>
+						<p>The E-Cell envisions a dynamic entrepreneurial ecosystem that fosters innovation, nurtures creative minds, and empowers students to become future leaders and change-makers. By bridging the gap between ideas and execution, we aim to create an environment</p>
+						<p>where aspiring entrepreneurs can develop groundbreaking solutions that drive economic growth and social impact</p>
 					</div>
 				</div>
 				<button class="capabilities-expand-button">
@@ -48,8 +48,8 @@
 			<div class="capabilities-item-wrapper">
 				<div class="capabilities-expand-wrapper">
 					<div class="capabilities-expand-content">
-						<p>{{info.mission1}} </p>
-						<p>	{{info.mission2}}</p>
+						<p>Our mission is to cultivate an entrepreneurial mindset among students by providing mentorship, skill development programs, networking opportunities, and real-world exposure to the startup ecosystem. We strive to inspire and support individuals in transforming their ideas into</p>
+						<p>successful ventures through workshops, competitions, industry interactions, and hands-on learning experiences.</p>
 					</div>
 				</div>
 				<button class="capabilities-expand-button">
@@ -64,8 +64,8 @@
 			<div class="capabilities-item-wrapper">
 				<div class="capabilities-expand-wrapper">
 					<div class="capabilities-expand-content">
-						<p>{{info.goals1}}</p>
-						<p>{{info.goals2}}</p>
+						<p>The primary goal of the E-Cell is to encourage and support students in their entrepreneurial journey by equipping them with the necessary knowledge, resources, and industry connections. We aim to foster a culture of innovation, problem-solving, and</p>
+						<p>self-sustainability, helping students develop their ventures and contribute to the growth of the startup ecosystem.</p>
 					</div>
 				</div>
 				<button class="capabilities-expand-button">
@@ -78,20 +78,6 @@
 				</button>
 			</div>
 	</div>
-</section>
-<section class="clients" id="clients">
-	<header>
-		<h2>Register StartUps</h2>
-	</header>
-	<ul style="--client--count:39">
-		{% for startup in startup  %} 
-			<li>
-				<p onclick="window.location.href='{{startup.website}}';" style="cursor: pointer;">
-					{{startup.startup_name}}
-				</p>
-			</li>
-		{% endfor %}
-	</ul>
 </section>
 
 <address id="offices">
@@ -144,6 +130,21 @@
 						</div>
 					</figcaption>
 				</figure>
+			</li>
+		{% endfor %}
+	</ul>
+</section>
+
+<section class="clients" id="clients">
+	<header>
+		<h2>Register StartUps</h2>
+	</header>
+	<ul style="--client--count:39">
+		{% for startup in startup  %} 
+			<li>
+				<p onclick="window.location.href='{{startup.website}}';" style="cursor: pointer;">
+					{{startup.startup_name}}
+				</p>
 			</li>
 		{% endfor %}
 	</ul>

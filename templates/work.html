@@ -50,8 +50,8 @@
 				<a href="{% url 'single_work' event.slug %}">
 					<figure style="--aspect-ratio:16 / 9">
 						<picture>
-							<source media="(max-width: 767px)" sizes="90vw" srcset="{{event.imgBanner.url}}">
-							<img src="{{event.imgBanner.url}}">
+							<source media="(max-width: 767px)" sizes="90vw" srcset="{{event.header_image.url}}">
+							<img src="{{event.header_image.url}}">
 						</picture>
 					</figure>
 					<div>
@@ -70,8 +70,8 @@
 				<a href="{% url 'single_work' event.slug %}">
 					<figure style="--aspect-ratio:16 / 9">
 						<picture>
-							<source media="(max-width: 767px)" sizes="90vw" srcset="{{event.imgBanner.url}}">
-							<img src="{{event.imgBanner.url}}">
+							<source media="(max-width: 767px)" sizes="90vw" srcset="{{event.header_image.url}}">
+							<img src="{{event.header_image.url}}">
 						</picture>
 					</figure>
 					<div>
@@ -85,6 +85,7 @@
 		{% endif %}
 	{% endfor %}
 	</menu>
+	<br/><br/>
 </section>
 <script>
 	function filterEvents(status) {

@@ -11,3 +11,15 @@ class BlogPostAdmin(admin.ModelAdmin):
     ordering = ('-created_at',)
 
 admin.site.register(BlogCategory)
+
+class EventTextInline(admin.TabularInline):
+    model = EventInformations
+    extra = 1  # Number of extra forms to display
+    fields = ('order', 'text',)
+    ordering = ('order',)
+
+@admin.register(EventInformations)
+class EventTextAdmin(admin.ModelAdmin):
+    list_display = ('event', 'order',)
+    list_filter = ('event',)
+    ordering = ('order',)

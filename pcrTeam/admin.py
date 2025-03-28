@@ -12,5 +12,5 @@ class EventAdmin(admin.ModelAdmin):
 
     list_editable = ["showCase"]
     list_filter = ["status","date"]
-    search_fields = ["title", "description"]
+    search_fields = ["title"]
     ordering = ["-date"]

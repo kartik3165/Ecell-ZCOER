@@ -13,17 +13,8 @@
 	<section class="intro">
 		<div>
 			<blockquote>
-				<p>{{event.title}}</p>
+				<p>{{event.title}} <br/> {{event.date}}</p>
 			</blockquote>
-			<aside>
-				<ul>
-					{% for data in tag_list %}
-					<li>
-						<p>{{data}}</p>
-					</li>
-					{% endfor %}
-				</ul>
-			</aside>
 		</div>
 	</section>
 </header>

@@ -1024,3 +1024,10 @@ body.home .splide__track {
 	padding-bottom: 18px;
 	max-width: 28ch;
 }
+
+hr {
+	border: solid;
+	height: 1px;
+	background-color: #1E3A8A;
+	margin: 20px 0; 
+}

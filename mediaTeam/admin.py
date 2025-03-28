@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import *
-# Register your models here.
 
 @admin.register(SocialMediaLink)
 class SocialMediaLinkAdmin(admin.ModelAdmin):
@@ -9,50 +8,46 @@ class SocialMediaLinkAdmin(admin.ModelAdmin):
     search_fields = ('platform', 'url')
 
 
-class MediaContentInline(admin.TabularInline):
-    model = MediaContent
-    extra = 1
-    fields = [
-        'media_type', 
-        'aspect_ratio', 
-        'position', 
-        'order', 
-        'image', 
-        'image_alt', 
-        'video', 
-        'video_poster', 
-        'info',
-    ]
-class SectionContentInline(admin.TabularInline):
-    model = SectionContent
-    extra = 1
-    fields = ['section_type', 'order']
+class EventImageInline(admin.TabularInline):
+    model = EventImage
+    extra = 1  # Number of extra forms to display
+    fields = ('image', 'alt_text')
 
-@admin.register(Event)
-class EventAdmin(admin.ModelAdmin):
-    inlines = [SectionContentInline]
-    list_display = ['id', 'get_title']
-    search_fields = ['events__title']  # Allow searching by the related contentEvent title
+@admin.register(EventImage)
+class EventImageAdmin(admin.ModelAdmin):
+    list_display = ('event', 'image', 'alt_text',)
+    list_filter = ('event',)
 
-    def get_title(self, obj):
-        return obj.events.title
-    get_title.short_description = 'Title'
 
-@admin.register(SectionContent)
-class SectionContentAdmin(admin.ModelAdmin):
-    inlines = [MediaContentInline]
-    list_display = ['section_type', 'get_event_title', 'order']
-    list_filter = ['section_type']
+class VideoAdmin(admin.ModelAdmin):
+    list_display = ("id", "youtube_url", "video_preview")
 
-    def get_event_title(self, obj):
-        return obj.event.events.title
-    get_event_title.short_description = 'Event Title'
+    def video_preview(self, obj):
+        return obj.embed_video()
 
-@admin.register(MediaContent)
-class MediaContentAdmin(admin.ModelAdmin):
-    list_display = ['media_type', 'aspect_ratio', 'order', 'get_section']
-    list_filter = ['media_type']
+    video_preview.allow_tags = True
+    video_preview.short_description = "Preview"
 
-    def get_section(self, obj):
-        return str(obj.section)
-    get_section.short_description = 'Section'
+admin.site.register(EventVideo, VideoAdmin)
+
+class AchivementImageInline(admin.TabularInline):
+    model = AchivementImage
+    extra = 1  # Number of extra forms to display
+    fields = ('image', 'alt_text')
+
+@admin.register(AchivementImage)
+class AchivementImageAdmin(admin.ModelAdmin):
+    list_display = ('event', 'image', 'alt_text',)
+    list_filter = ('event',)
+
+
+class AchivementVideoAdmin(admin.ModelAdmin):
+    list_display = ("id", "youtube_url", "video_preview")
+
+    def video_preview(self, obj):
+        return obj.embed_video()
+
+    video_preview.allow_tags = True
+    video_preview.short_description = "Preview"
+
+admin.site.register(AchivementVideo, AchivementVideoAdmin)

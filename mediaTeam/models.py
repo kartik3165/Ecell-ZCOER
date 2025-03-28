@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
-from pcrTeam.models import Event as ContentEvent
+from pcrTeam.models import Event
+from GeneralApp.models import Achivement
 from tinymce.models import HTMLField
 from django.core.validators import URLValidator
 from django.utils.html import mark_safe
@@ -44,63 +45,59 @@ class SocialMediaLink(models.Model):
         verbose_name = "Social Media Link"
         verbose_name_plural = "Social Media Links"
 
-class Event(models.Model):
-    events = models.ForeignKey(ContentEvent, verbose_name=("content_event"), on_delete=models.CASCADE)
-    date = models.DateField(null=True, blank=True) 
-    hero_Image = models.ImageField(upload_to='event_images/hero/')  # Migrated from EventImage
-    
-    def __str__(self):
-        return self.events.title
 
-class SectionContent(models.Model):
-    SECTION_TYPE_CHOICES = [                      # Moved from EventImage
-        ('single', 'Single (One Image only)'),
-        ('double', 'Double (Two Image Side by Side)'),
-        ('sticky', 'Sticky (Image and Text Side by Side)'),
-    ]
-    
-    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name="sections")  # Updated ForeignKey
-    section_type = models.CharField(max_length=10, choices=SECTION_TYPE_CHOICES)
-    order = models.PositiveIntegerField(default=0)
-    
-    class Meta:
-        ordering = ['order']
-    
-    def __str__(self):
-        return f"{self.section_type} section for {self.event.events.title} (#{self.order})"
+class EventImage(models.Model):
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event_images')
+    image = models.ImageField(upload_to='event_images/')
+    alt_text = models.CharField(max_length=255, blank=True)
 
-class MediaContent(models.Model):
-    MEDIA_TYPE_CHOICES = [
-        ('image', 'Image'),
-        ('video', 'Video'),
-        ('text', 'Text'),
-    ]
-    ASPECT_RATIO_CHOICES = [
-        ('16/9', '16:9'),
-        ('3/4', '3:4'),
-        ('8/9', '8:9')
-    ]
-    
-    section = models.ForeignKey(SectionContent, on_delete=models.CASCADE, related_name="media_items")
-    media_type = models.CharField(max_length=10, choices=MEDIA_TYPE_CHOICES)
-    aspect_ratio = models.CharField(max_length=10, choices=ASPECT_RATIO_CHOICES, blank=True)
-    order = models.PositiveIntegerField(default=0)
-    position = models.CharField(max_length=10, blank=True, help_text="For double sections: 'left' or 'right'")
-    
-    # Image fields
-    image = models.ImageField(upload_to="Event-Images/", blank=True, null=True)
-    image_alt = models.CharField(max_length=255, blank=True)
-    
-    # Video fields
-    video = models.FileField(upload_to="Event-Videos/", blank=True, null=True)
-    video_poster = models.ImageField(upload_to="Event-Video-Posters/", blank=True, null=True)
-    
-    # Text content (for sticky sections)
-    info = HTMLField(blank=True)
 
-    
-    class Meta:
-        ordering = ['order']
-    
     def __str__(self):
-        return f"{self.media_type} for {self.section}"
+        return f"{self.event.title} img No. {self.event.id}"
+class EventVideo(models.Model):
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event_videos')
+    youtube_url = models.URLField()
+
+    def embed_video(self):
+        if "youtube.com" in self.youtube_url or "youtu.be" in self.youtube_url:
+            return mark_safe(f'<iframe width="560" height="315" src="https://www.youtube.com/embed/{self.extract_video_id()}" frameborder="0" allowfullscreen></iframe>')
+        return "Invalid YouTube URL"
+
+    def extract_video_id(self):
+        """Extract video ID from YouTube URL."""
+        if "youtu.be" in self.youtube_url:
+            return self.youtube_url.split("/")[-1]
+        elif "youtube.com" in self.youtube_url:
+            return self.youtube_url.split("v=")[-1].split("&")[0]
+        return ""
+
+    def __str__(self):
+        return f" {self.event.title} video No. {self.event.id}"
+
+class AchivementImage(models.Model):
+    event = models.ForeignKey(Achivement, on_delete=models.CASCADE, related_name='event_images')
+    image = models.ImageField(upload_to='event_images/')
+    alt_text = models.CharField(max_length=255, blank=True)
+
+
+    def __str__(self):
+        return f"{self.event.title} img No. {self.event.id}"
+class AchivementVideo(models.Model):
+    event = models.ForeignKey(Achivement, on_delete=models.CASCADE, related_name='event_videos')
+    youtube_url = models.URLField()
+
+    def embed_video(self):
+        if "youtube.com" in self.youtube_url or "youtu.be" in self.youtube_url:
+            return mark_safe(f'<iframe width="560" height="315" src="https://www.youtube.com/embed/{self.extract_video_id()}" frameborder="0" allowfullscreen></iframe>')
+        return "Invalid YouTube URL"
+
+    def extract_video_id(self):
+        """Extract video ID from YouTube URL."""
+        if "youtu.be" in self.youtube_url:
+            return self.youtube_url.split("/")[-1]
+        elif "youtube.com" in self.youtube_url:
+            return self.youtube_url.split("v=")[-1].split("&")[0]
+        return ""
+
+    def __str__(self):
+        return f" {self.event.title} video No. {self.event.id}"
